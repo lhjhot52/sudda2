@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class CardDeck {
 	public static void main(String[] args) {
-		
 	
     System.out.println("===========< 섯다 게임 >===========");
     System.out.println("----------------------------------------");
