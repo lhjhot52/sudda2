@@ -5,7 +5,6 @@ import java.sql.Connection;
 public class maintest {
 	public static void main(String[] args) {
 		
-		DataSource ds = DataSource.getInstance();
-		Connection con = ds.getConnection();
+		new Seokda().new_game();
 	}
 }
