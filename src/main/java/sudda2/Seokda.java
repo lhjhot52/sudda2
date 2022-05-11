@@ -3,6 +3,9 @@ package sudda2;
 import java.util.Scanner;
 
 public class Seokda {
+	private Scanner scn = new Scanner(System.in);
+	MemberServiceImpl memberServiceImpl = new MemberService();
+	
 	Cards cards;
 	Player player;
 	Computer com;
@@ -14,8 +17,44 @@ public class Seokda {
     	com = new Computer();
     	sc = new Scanner(System.in);
     }
-    
-    public void new_game() {
+    public void run() {
+    	new_game();
+    }
+
+	public void new_game() {
+		boolean run = true;
+		
+		while(run) {
+			int menuNum = 0;
+			
+			System.out.println("===========================================");
+			System.out.println("===========1.로그인 2.회원가입 3.종료===========");
+			System.out.println("===========================================");
+			
+			try {
+				System.out.println("메뉴 입력 : ");
+				menuNum = Integer.parseInt(scn.nextLine());
+			}catch(Exception e) {
+				System.out.println("잘못된 값을 입력하였습니다.");
+			}
+		    switch (menuNum) {
+		    case 1 :
+		    	MemberVO login = login();
+		    	break;
+		    case 2 :
+		    	memberInsert();
+		    	break;
+		    case 3:
+		    	System.out.println("=======시스템을 종료합니다.=======");
+		    	scn.close();
+		    	run = false;
+		    	break;
+		    default :
+		    	errorMenu();
+		    	break;
+		    }
+		
+		}
     	player.add(cards.next());
     	player.add(cards.next());
         
@@ -59,4 +98,30 @@ public class Seokda {
     		System.out.println("컴퓨터의 승리");
     	}
     }
+	private void memberInsert() {
+		System.out.println("아이디 : ");
+		String memberId = scn.nextLine();
+		System.out.println("비밀번호 : ");
+		String password = scn.nextLine();
+		System.out.println("이름 : ");
+		String name = scn.nextLine();
+		System.out.print("연락처 : ");
+		String phone = scn.nextLine();
+		System.out.print("주소 : ");
+		String address = scn.nextLine();
+		MemberVO vo = new MemberVO(memberId, password, name, phone, address);
+		
+		memberServiceImpl.memberInsert(vo);
+		
+	}
+	private MemberVO login() {
+		System.out.println("아이디 : ");
+		String memberId = scn.nextLine();
+		System.out.println("비밀번호 : ");
+		String password = scn.nextLine();
+		MemberVO vo = new MemberVO(memberId,password);
+		
+		MemberVO memberVO = memberServiceImpl.login(vo);
+	}
+	
 }
