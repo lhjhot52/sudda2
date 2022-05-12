@@ -14,7 +14,11 @@ public class Player {
 	void add(Card card) {
 		tables[count++] = card;
 	}
-
+	
+	public void init() {
+		tables = new Card[MAX_TABLE_SIZE];
+	}
+	
 	public String toString1() {
 		String str = "";
 		int index = 0;
@@ -134,6 +138,7 @@ public class Player {
 			first = second;
 			second = temp;
 		}
+		
 		if (a && b) {
 			if (first == 3 && second == 8) {
 				value = 1000;
@@ -203,8 +208,11 @@ public class Player {
 				} else {
 					value = (first + second) % 10;
 				}
+			} else {
+				value = (first + second) % 10;
 			}
 		}
+		
 		return value;
 	}
 	

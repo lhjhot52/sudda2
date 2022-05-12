@@ -14,7 +14,7 @@ public class MemberService implements MemberServiceImpl{
 	   @Override
 	   public int memberInsert(MemberVO vo) {
 	      int result = 0;
-	      String sql = "INSERT INTO MEMBER VALUES(MEMBERNO.NEXTVAL,?, ?, ?, ?, ?,)";
+	      String sql = "INSERT INTO MEMBER VALUES(?, ?, ?, ?, ?)";
 	      
 	      try {
 	         psmt = conn.prepareStatement(sql);
@@ -35,7 +35,7 @@ public class MemberService implements MemberServiceImpl{
 	   @Override
 	   public MemberVO login(MemberVO vo) {
 	      MemberVO memberVO = new MemberVO();
-	      String sql = "SELECT * FROM MEMBER WHERE MEMBERID = ? AND MEMBERPASSWORD = ?";
+	      String sql = "SELECT * FROM MEMBER WHERE ID = ? AND PASSWORD = ?";
 	      try {
 	         psmt = conn.prepareStatement(sql);
 	         psmt.setString(1, vo.getMemberId());
@@ -44,11 +44,11 @@ public class MemberService implements MemberServiceImpl{
 	         rs = psmt.executeQuery();
 	         
 	         while(rs.next()) {
-	            memberVO.setMemberId(rs.getString("memberId"));
-	            memberVO.setMemberPassword(rs.getString("memberPassword"));
-	            memberVO.setMemberName(rs.getString("memberName"));
-	            memberVO.setMemberPhone(rs.getString("memberPhone"));
-	            memberVO.setMemberAddress(rs.getString("memberAddress"));
+	            memberVO.setMemberId(rs.getString("Id"));
+	            memberVO.setMemberPassword(rs.getString("Password"));
+	            memberVO.setMemberName(rs.getString("Name"));
+	            memberVO.setMemberPhone(rs.getString("Phone"));
+	            memberVO.setMemberAddress(rs.getString("Address"));
 	         }
 	      } catch (SQLException e) {
 	         e.printStackTrace();

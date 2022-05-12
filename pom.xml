@@ -22,7 +22,7 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>sudda2/src/main/resources</directory>
+				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
 	</build>
