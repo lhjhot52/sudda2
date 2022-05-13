@@ -1,31 +1,29 @@
 package sudda2;
 
-import java.sql.Date;
-
 public class MemberVO {
-    private int memberNo;
-    private String memberId;
-    private String memberPassword;
-    private String memberName;
-    private String memberPhone;
-    private String memberAddress;
-    
-    public MemberVO(String id, String password, String name, String phone, String address) {
-    	this.memberId = id;
-    	this.memberPassword = password;
-    	this.memberName = name;
-    	this.memberPhone = phone;
-    	this.memberAddress = address;
-    }
-    
-    public MemberVO(String id, String password) {
-    	this.memberId = id;
-    	this.memberPassword = password;
-    }
-    
-    public MemberVO() {
-    	
-    }
+	private int memberNo;
+	private String memberId;
+	private String memberPassword;
+	private String memberName;
+	private String memberPhone;
+	private String memberAddress;
+
+	public MemberVO(String id, String password, String name, String phone, String address) {
+		this.memberId = id;
+		this.memberPassword = password;
+		this.memberName = name;
+		this.memberPhone = phone;
+		this.memberAddress = address;
+	}
+
+	public MemberVO(String id, String password) {
+		this.memberId = id;
+		this.memberPassword = password;
+	}
+
+	public MemberVO() {
+
+	}
 
 	public int getMemberNo() {
 		return memberNo;
@@ -74,7 +72,5 @@ public class MemberVO {
 	public void setMemberAddress(String memberAddress) {
 		this.memberAddress = memberAddress;
 	}
-
-
 
 }

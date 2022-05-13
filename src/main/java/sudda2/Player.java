@@ -69,8 +69,9 @@ public class Player {
 					str = (first + second) % 10 + "끗";
 				}
 			} else {
-				str = (first + second) % 10 + "끗";
+				str = (first + second) % 10 +"끗";
 			}
+			 
 		} else {
 			if (first == second) {
 				if (first == 10) {
@@ -216,4 +217,97 @@ public class Player {
 		return value;
 	}
 	
-  }
+	int lv() {
+		int temp;
+		int value = 0;
+		int first = tables[0].getValue();
+		int second = tables[1].getValue();
+		boolean a, b;
+		a = tables[0].getPower();
+		b = tables[1].getPower();
+
+		if (first > second) {
+			temp = first;
+			first = second;
+			second = temp;
+		}
+		
+		if (a && b) {
+			if (first == 3 && second == 8) {
+				value = 1000;
+			} else if (first == 1 && second == 3) {
+				value = 990;
+			} else if (first == 1 && second == 8) {
+				value = 990;
+			} else if (first == 3 && second == 7) {
+				value = 0; 
+			} else if (first == 4 && second == 7) {
+				value = 1;
+			} else if (first == 4 && second == 9) {
+				value = 333;
+			} else if (first == 1) {
+				if (second == 4) {
+					value = 19;
+				} else if (second == 9) {
+					value = 18;
+				} else {
+					value = (first + second) % 10;
+				}
+			} else {
+				value = (first + second) % 10;
+			}
+			 
+		} else {
+			if (first == second) {
+				if (first == 10) {
+					value = 101;
+				} else if (first == 9) {
+					value = 100;
+				} else if (first == 8) {
+					value = 100;
+				} else if (first == 7) {
+					value = 100;
+				} else if (first == 6) {
+					value = 100;
+				} else if (first == 5) {
+					value = 100;
+				} else if (first == 4) {
+					value = 100;
+				} else if (first == 3) {
+					value = 100;
+				} else if (first == 2) {
+					value = 100;
+				} else if (first == 1) {
+					value = 100;
+				}
+			} else if (first == 1) {
+				if (second == 2) {
+					value = 20;
+				} else if (second == 4) {
+					value = 19;
+				} else if (second == 9) {
+					value = 18;
+				} else if (second == 10) {
+					value = 17;
+				} else {
+					value = (first + second) % 10;
+				}
+			} else if (first == 4) {
+				if (second == 10) {
+					value = 16;
+				} else if (second == 6) {
+					value = 15;
+				} else if (second == 9) {
+					value = 33;
+				} else {
+					value = (first + second) % 10;
+				}
+			} else {
+				value = (first + second) % 10;
+			}
+		}
+		
+		return value;
+	}		
+}
+	
